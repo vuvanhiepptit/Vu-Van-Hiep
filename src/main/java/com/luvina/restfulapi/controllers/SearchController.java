@@ -35,11 +35,11 @@ public class SearchController {
 		if (postCode == null || Common.checkHalfSize(postCode) == false) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		List<Post> list = postRepository.searchByPostCode(postCode);
+		List<Post> list = postRepository.searchByPostCodeRepository(postCode);
 		if (list == null || list.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(new DataPost(list),HttpStatus.OK);
+		return new ResponseEntity<>(new DataPost(list, "success"),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "prefecture/{prefectureCode}", method = RequestMethod.GET)
@@ -49,10 +49,10 @@ public class SearchController {
 		if (prefectureCode == null || Common.checkHalfSize(prefectureCode) == false) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		List<Prefecture> list = prefectureRepository.searchByPrefectureCode(prefectureCode);
+		List<Prefecture> list = prefectureRepository.searchByPrefectureCodeRepository(prefectureCode);
 		if (list == null || list.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(new DataPrefecture(list), HttpStatus.OK);
+		return new ResponseEntity<>(new DataPrefecture(list, "success"), HttpStatus.OK);
 	}
 }

@@ -8,9 +8,9 @@ public class DataPost {
 	
 	private String result;
 
-	public DataPost(List<Post> data) {
+	public DataPost(List<Post> data, String result) {
 		this.data = data;
-		this.result = "success";
+		this.result = result;
 	}
 	
 	public List<Post> getData() {

@@ -9,9 +9,9 @@ public class DataPrefecture {
 	private String result;
 	
 	
-	public DataPrefecture(List<Prefecture> data) {
+	public DataPrefecture(List<Prefecture> data, String result) {
 		this.data = data;
-		this.result = "success";
+		this.result = result;
 	}
 	
 	public String getResult() {

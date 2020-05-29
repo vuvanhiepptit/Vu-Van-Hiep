@@ -11,15 +11,16 @@ import java.util.List;
 
 @Repository
 public interface PrefectureRepository extends JpaRepository<TblCityEntity, Long> {
-    @Query("select new com.luvina.restfulapi.entities.Prefecture(" +
-            "c.code, " +
-            "c.city, " +
-            "c.cityKana, " +
-            "p.prefecture, " +
-            "p.prefectureKana, " +
-            "p.prefectureCode) " +
-            "from TblCityEntity c " +
-            "inner join c.tblPrefectureEntity p " +
-            "where p.prefectureCode = :prefectureCode")
-    List<Prefecture> searchByPrefectureCode(@Param("prefectureCode") String prefectureCode);
+	
+	@Query("select new com.luvina.restfulapi.entities.Prefecture("
+			+ "c.code, "
+			+ "c.city, "
+			+ "c.cityKana, "
+			+ "p.prefecture, "
+			+ "p.prefectureKana, "
+			+ "p.prefectureCode) "
+			+ "from TblCityEntity c "
+			+ "inner join c.tblPrefectureEntity p "
+			+ "where p.prefectureCode = :prefectureCode")
+	List<Prefecture> searchByPrefectureCodeRepository(@Param("prefectureCode") String prefectureCode);
 }
