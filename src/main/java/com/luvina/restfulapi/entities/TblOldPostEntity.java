@@ -19,14 +19,7 @@ public class TblOldPostEntity {
 	private Set<TblAreaEntity> tblAreaEntities;
 	
 	
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
+
 	public String getOldPostCode() {
 		return oldPostCode;
 	}
@@ -42,4 +35,5 @@ public class TblOldPostEntity {
 	public void setTblAreaEntities(Set<TblAreaEntity> tblAreaEntities) {
 		this.tblAreaEntities = tblAreaEntities;
 	}
+
 }

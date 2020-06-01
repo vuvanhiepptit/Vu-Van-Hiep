@@ -28,14 +28,7 @@ public class TblPostEntity {
 	private Set<TblAreaEntity> tblAreaEntities;
 	
 	
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
+
 	public String getPostCode() {
 		return postCode;
 	}
@@ -75,4 +68,5 @@ public class TblPostEntity {
 	public void setTblAreaEntities(Set<TblAreaEntity> tblAreaEntities) {
 		this.tblAreaEntities = tblAreaEntities;
 	}
+
 }

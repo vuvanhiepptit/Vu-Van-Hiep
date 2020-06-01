@@ -108,4 +108,6 @@ public class TblAreaEntity {
 	public void setTblPostEntity(TblPostEntity tblPostEntity) {
 		this.tblPostEntity = tblPostEntity;
 	}
+	
+
 }

@@ -32,15 +32,7 @@ public class TblCityEntity {
 	@OneToMany(targetEntity = TblAreaEntity.class, mappedBy = "id", fetch = FetchType.LAZY)
 	private Set<TblAreaEntity> tblAreaEntities;
 	
-	
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
+
 	public String getCode() {
 		return code;
 	}
@@ -80,4 +72,5 @@ public class TblCityEntity {
 	public void setTblAreaEntities(Set<TblAreaEntity> tblAreaEntities) {
 		this.tblAreaEntities = tblAreaEntities;
 	}
+
 }

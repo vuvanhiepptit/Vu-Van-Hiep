@@ -4,19 +4,17 @@ import com.luvina.restfulapi.entities.Post;
 import com.luvina.restfulapi.entities.Prefecture;
 import com.luvina.restfulapi.repositories.PostRepository;
 import com.luvina.restfulapi.repositories.PrefectureRepository;
-import com.luvina.restfulapi.utils.Common;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
+import static junit.framework.TestCase.assertEquals;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SearchControllerTest {
@@ -29,6 +27,9 @@ public class SearchControllerTest {
 	
 	@Mock
 	private PrefectureRepository prefectureRepository;
+
+	@Captor
+	ArgumentCaptor<String> stringArgumentCaptor;
 	
 	
 	@Before
@@ -51,13 +52,17 @@ public class SearchControllerTest {
 	
 	@Test
 	public void findByPostCodeTest() {
-		assertEquals("true", 200, searchController.searchByPostCode("0010020").getStatusCodeValue());
-		assertEquals("true", 2, searchController.searchByPostCode("0010020").getBody().getData().size());
+		assertEquals(200, searchController.searchByPostCode("0010020").getStatusCodeValue());
+		assertEquals(2, searchController.searchByPostCode("0010020").getBody().getData().size());
+		verify(postRepository, times(2)).searchByPostCodeRepository("0010020");
+		verify(postRepository, times(2)).searchByPostCodeRepository(stringArgumentCaptor.capture());
 	}
 	
 	@Test
 	public void findByPrefectureCodeTest() {
-		assertEquals("true", 3, searchController.searchByPrefectureCode("10").getBody().getData().size());
-		assertEquals("true", 200, searchController.searchByPrefectureCode("10").getStatusCodeValue());
+		assertEquals(3, searchController.searchByPrefectureCode("10").getBody().getData().size());
+		assertEquals(200, searchController.searchByPrefectureCode("10").getStatusCodeValue());
+		verify(prefectureRepository, times(2)).searchByPrefectureCodeRepository("10");
+		verify(prefectureRepository, times(2)).searchByPrefectureCodeRepository(stringArgumentCaptor.capture());
 	}
 }

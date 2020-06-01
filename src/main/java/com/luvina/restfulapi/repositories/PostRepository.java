@@ -13,12 +13,12 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<TblAreaEntity, Long> {
 	
 	@Query("select new com.luvina.restfulapi.entities.Post("
+			+ "c.code, "
+			+ "c.city, "
+			+ "c.cityKana, "
 			+ "p.prefecture, "
 			+ "p.prefectureKana, "
 			+ "p.prefectureCode, "
-			+ "c.code, "
-			+ "c.cityKana, "
-			+ "c.city, "
 			+ "a.area, "
 			+ "a.areaKana, "
 			+ "a.multiPostArea, "

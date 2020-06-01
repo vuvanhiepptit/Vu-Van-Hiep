@@ -33,14 +33,7 @@ public class TblPrefectureEntity {
 		this.tblCityEntities = tblCityEntities;
 	}
 	
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
+
 	public String getPrefecture() {
 		return prefecture;
 	}
@@ -64,4 +57,5 @@ public class TblPrefectureEntity {
 	public void setPrefectureCode(String prefectureCode) {
 		this.prefectureCode = prefectureCode;
 	}
+
 }
